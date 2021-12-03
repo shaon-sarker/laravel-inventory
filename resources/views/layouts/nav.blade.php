@@ -171,7 +171,7 @@
                             </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
                             <li><a href="{{ route('supplier') }}">Add Supplier</a></li>
-                            <li><a href="#">View Supplier</a></li>
+                            <li><a href="{{ route('supplier.view') }}">View Supplier</a></li>
                         </ul>
                     </li>
 

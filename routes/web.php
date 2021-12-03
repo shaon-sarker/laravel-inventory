@@ -45,7 +45,7 @@ Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distro
 //Supplier Route
 Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
 Route::post('/supplier/store', [SupplierController::class, 'insert'])->name('supplier.insert');
-// Route::get('/customer/view', [CustomerController::class, 'display'])->name('customer.view');
+Route::get('/supplier/view', [SupplierController::class, 'display'])->name('supplier.view');
 // Route::get('/customer/edit/{customer_id}', [CustomerController::class, 'edit']);
 // Route::post('/customer/update', [CustomerController::class, 'update']);
 // Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distroy']);
