@@ -53,7 +53,7 @@
                                                         <td>{{ $supplier_info->type }}</td>
                                                         <td>{{ $supplier_info->shop }}</td>
                                                         <td><img width="50%"
-                                                                src="{{ asset('uploads/customers') }}/{{ $supplier_info->photo }}"
+                                                                src="{{ asset('uploads/suppliers') }}/{{ $supplier_info->photo }}"
                                                                 alt=""></td>
                                                         <td>{{ $supplier_info->account_holder }}</td>
                                                         <td>{{ $supplier_info->account_number }}</td>
@@ -66,10 +66,10 @@
                                                             @endif
                                                         </td>
                                                         <td class="actions pr-5">
-                                                            <a href="{{ url('/customer/edit') }}/{{ $supplier_info->id }}"
+                                                            <a href="{{ url('/supplier/edit') }}/{{ $supplier_info->id }}"
                                                                 class="on-default edit-row"><i
                                                                     class="fa fa-pencil"></i></a>
-                                                            <a href="{{ url('/employee/delete') }}/{{ $supplier_info->id }}"
+                                                            <a href="{{ url('/supplier/delete') }}/{{ $supplier_info->id }}"
                                                                 class="on-default remove-row"><i
                                                                     class="fa fa-trash-o"></i></a>
                                                             <a href="#" class="on-default remove-row"><i

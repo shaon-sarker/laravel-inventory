@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect()->route('login');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -32,7 +33,6 @@ Route::get('/employee/edit/{employee_id}', [EmployeeController::class, 'edit']);
 Route::post('/employee/update', [EmployeeController::class, 'update']);
 Route::get('/employee/delete/{employee_id}', [EmployeeController::class, 'distroy']);
 
-
 //Customer Route
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 Route::post('/customer/store', [CustomerController::class, 'insert'])->name('customer.insert');
@@ -41,11 +41,10 @@ Route::get('/customer/edit/{customer_id}', [CustomerController::class, 'edit']);
 Route::post('/customer/update', [CustomerController::class, 'update']);
 Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distroy']);
 
-
 //Supplier Route
 Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
 Route::post('/supplier/store', [SupplierController::class, 'insert'])->name('supplier.insert');
 Route::get('/supplier/view', [SupplierController::class, 'display'])->name('supplier.view');
-// Route::get('/customer/edit/{customer_id}', [CustomerController::class, 'edit']);
-// Route::post('/customer/update', [CustomerController::class, 'update']);
-// Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distroy']);
+Route::get('/supplier/edit/{supplier_id}', [SupplierController::class, 'edit']);
+Route::post('/supplier/update', [SupplierController::class, 'update']);
+Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distroy']);
