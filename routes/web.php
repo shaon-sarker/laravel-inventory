@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,7 @@ Route::get('/supplier/view', [SupplierController::class, 'display'])->name('supp
 Route::get('/supplier/edit/{supplier_id}', [SupplierController::class, 'edit']);
 Route::post('/supplier/update', [SupplierController::class, 'update']);
 Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distroy']);
+
+//Salary Route
+Route::get('/salary', [SalaryController::class, 'index'])->name('salary');
+Route::post('/salary/store', [SalaryController::class, 'insert'])->name('salary.insert');
