@@ -208,16 +208,10 @@
                         <ul class="list-unstyled">
                             <li><a href="{{ route('catgeory') }}">Add Category</a></li>
                             <li><a href="{{ route('catgeory.view') }}">View Category</a></li>
-                            {{-- <li><a href="form-advanced.html">Advanced Form</a></li>
-                            <li><a href="form-wizard.html">Form Wizard</a></li>
-                            <li><a href="form-editor.html">WYSIWYG Editor</a></li>
-                            <li><a href="code-editor.html">Code Editors</a></li>
-                            <li><a href="form-uploads.html">Multiple File Upload</a></li>
-                            <li><a href="form-xeditable.html">X-editable</a></li> --}}
                         </ul>
                     </li>
 
-                    <li class="has_sub">
+                    {{-- <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-view-list"></i><span> Data Tables
                             </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
@@ -226,9 +220,9 @@
                             <li><a href="tables-editable.html">Editable Table</a></li>
                             <li><a href="responsive-table.html">Responsive Table</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li class="has_sub">
+                    {{-- <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-poll"></i><span> Charts </span><span
                                 class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
@@ -240,18 +234,18 @@
                             <li><a href="chart-radial.html">Radial charts</a></li>
                             <li><a href="other-chart.html">Other Chart</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li class="has_sub">
+                    {{-- <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-place"></i><span> Maps </span><span
                                 class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
                             <li><a href="gmap.html"> Google Map</a></li>
                             <li><a href="vector-map.html"> Vector Map</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li class="has_sub">
+                    {{-- <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Pages </span><span
                                 class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
@@ -271,9 +265,9 @@
                             <li><a href="404_alt.html">404 alt</a></li>
                             <li><a href="500.html">500 Error</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li class="has_sub">
+                    {{-- <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect"><i class="md md-share"></i><span>Multi
                                 Level </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul>
@@ -290,7 +284,7 @@
                                 <a href="javascript:void(0);"><span>Menu Level 1.2</span></a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="clearfix"></div>
             </div>
