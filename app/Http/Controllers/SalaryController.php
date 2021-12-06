@@ -16,8 +16,6 @@ class SalaryController extends Controller
     }
     public function insert(Request $request)
     {
-        // dd($request->all());
-        // die();
         $month = $request->month;
         $employee_id = $request->employee_id;
         $advanced_salary = AdvanceSalary::where('month', $month)->where('employee_id', $employee_id)->first();
@@ -36,13 +34,13 @@ class SalaryController extends Controller
             $advanced_salary = AdvanceSalary::insert($employee_salary);
             if ($advanced_salary) {
                 $notification = array(
-                    'messege' => 'Successfully Advanced Paid ',
+                    'messege' => 'Successfully Advanced Paid',
                     'alert-type' => 'success'
                 );
                 return Redirect()->back()->with($notification);
             } else {
                 $notification = array(
-                    'messege' => 'error ',
+                    'messege' => 'error',
                     'alert-type' => 'success'
                 );
                 return Redirect()->back()->with($notification);
@@ -54,5 +52,16 @@ class SalaryController extends Controller
             );
             return redirect()->back()->with($notification);
         }
+    }
+
+    public function allsalary()
+    {
+        $advanced_salary = AdvanceSalary::all();
+        return view('salary.view_salary', compact('advanced_salary'));
+    }
+    public function paysalary()
+    {
+        $pay_salary = Employee::all();
+        return view('salary.pay_salary', compact('pay_salary'));
     }
 }

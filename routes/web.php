@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SalaryController;
@@ -53,3 +54,13 @@ Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distro
 //Salary Route
 Route::get('/salary', [SalaryController::class, 'index'])->name('salary');
 Route::post('/salary/store', [SalaryController::class, 'insert'])->name('salary.insert');
+Route::get('/salary/advance-salary', [SalaryController::class, 'allsalary'])->name('all.advanceslary');
+Route::get('/salary/pay-salary', [SalaryController::class, 'paysalary'])->name('pay.salary');
+
+//Category Rute
+Route::get('/category', [CategoryController::class, 'index'])->name('catgeory');
+Route::post('/category/store', [CategoryController::class, 'insert'])->name('catgeory.insert');
+Route::get('/category/view', [CategoryController::class, 'display'])->name('catgeory.view');
+Route::get('/category/active/{category_id}', [CategoryController::class, 'Activecategory']);
+Route::get('/category/inactive/{category_id}', [CategoryController::class, 'Inactivecategory']);
+Route::get('/category/delete/{category_id}', [CategoryController::class, 'distroy']);
