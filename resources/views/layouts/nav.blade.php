@@ -211,16 +211,14 @@
                         </ul>
                     </li>
 
-                    {{-- <li class="has_sub">
-                        <a href="#" class="waves-effect"><i class="md md-view-list"></i><span> Data Tables
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-view-list"></i><span>Products
                             </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="tables.html">Basic Tables</a></li>
-                            <li><a href="table-datatable.html">Data Table</a></li>
-                            <li><a href="tables-editable.html">Editable Table</a></li>
-                            <li><a href="responsive-table.html">Responsive Table</a></li>
+                            <li><a href="{{ route('product') }}">Add Product</a></li>
+                            <li><a href="{{ route('product.view') }}">View Product</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
 
                     {{-- <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-poll"></i><span> Charts </span><span

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -64,3 +65,11 @@ Route::get('/category/view', [CategoryController::class, 'display'])->name('catg
 Route::get('/category/active/{category_id}', [CategoryController::class, 'Activecategory']);
 Route::get('/category/inactive/{category_id}', [CategoryController::class, 'Inactivecategory']);
 Route::get('/category/delete/{category_id}', [CategoryController::class, 'distroy']);
+
+//Product Route
+Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::post('/product/store', [ProductController::class, 'insert'])->name('product.insert');
+Route::get('/product/view', [ProductController::class, 'display'])->name('product.view');
+Route::get('/product/edit/{product_id}', [ProductController::class, 'edit']);
+Route::post('/product/update', [ProductController::class, 'update']);
+Route::get('/product/delete/{product_id}', [ProductController::class, 'distroy']);

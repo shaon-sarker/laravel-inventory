@@ -29,42 +29,41 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sl</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
+                                                    <th>Category Name</th>
+                                                    <th>Product Serial No</th>
+                                                    <th>Product Name</th>
+                                                    <th>Product Price</th>
+                                                    <th>Product Quantity</th>
                                                     <th>Picture</th>
-                                                    <th>Salary</th>
-                                                    <th>City</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($employee as $employee_info)
+                                                @foreach ($products as $product_info)
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
-                                                        <td>{{ $employee_info->name }}</td>
-                                                        <td>{{ $employee_info->email }}</td>
-                                                        <td>{{ $employee_info->phone }}</td>
-                                                        <td>{{ $employee_info->address }}</td>
+                                                        <td>{{ App\Models\Category::find($product_info->id)->category_name }}
+                                                        </td>
+                                                        <td>{{ $product_info->product_serialno }}</td>
+                                                        <td>{{ $product_info->prodruct_name }}</td>
+                                                        <td>{{ $product_info->product_price }}</td>
+                                                        <td>{{ $product_info->product_quantity }}</td>
                                                         <td><img width="50%"
-                                                                src="{{ asset('uploads/employess') }}/{{ $employee_info->photo }}"
+                                                                src="{{ asset('uploads/products') }}/{{ $product_info->product_image }}"
                                                                 alt=""></td>
-                                                        <td>{{ $employee_info->slaray }}</td>
-                                                        <td>{{ $employee_info->city }}</td>
                                                         <td>
-                                                            @if ($employee_info->status == 1)
+                                                            @if ($product_info->status == 1)
                                                                 <span class="label label-info">Active</span>
                                                             @else
                                                                 <span class="label label-danger">Inactive</span>
                                                             @endif
                                                         </td>
                                                         <td class="actions pr-5">
-                                                            <a href="{{ url('/employee/edit') }}/{{ $employee_info->id }}"
+                                                            <a href="{{ url('/product/edit') }}/{{ $product_info->id }}"
                                                                 class="on-default edit-row"><i
                                                                     class="fa fa-pencil"></i></a>
-                                                            <a href="{{ url('/employee/delete') }}/{{ $employee_info->id }}"
+                                                            <a href="{{ url('/product/delete') }}/{{ $product_info->id }}"
                                                                 class="on-default remove-row"><i
                                                                     class="fa fa-trash-o"></i></a>
                                                             <a href="#" class="on-default remove-row"><i
