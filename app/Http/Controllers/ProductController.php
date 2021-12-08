@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductPost;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Image;
@@ -14,16 +15,24 @@ class ProductController extends Controller
     public function index()
     {
         $categorys = Category::all();
-        return view('product.index', compact('categorys'));
+        $suppliers = Supplier::all();
+        return view('product.index', compact('categorys', 'suppliers'));
     }
     public function insert(ProductPost $request)
     {
         $product_id = Product::insertGetId([
             'category_id' => $request->category_id,
+            'supplier_id' => $request->supplier_id,
             'product_serialno' => $request->product_serialno,
             'prodruct_name' => $request->prodruct_name,
             'product_price' => $request->product_price,
             'product_quantity' => $request->product_quantity,
+            'product_grage' => $request->product_grage,
+            'product_route' => $request->product_route,
+            'buy_date' => $request->buy_date,
+            'expire_date' => $request->expire_date,
+            'buying_price' => $request->buying_price,
+            'selling_price' => $request->selling_price,
             'created_at' => Carbon::now(),
         ]);
         $new_product_photo = $request->product_image;

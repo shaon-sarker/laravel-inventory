@@ -37,6 +37,19 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Supplier Name</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" name="supplier_id">
+                                                        <option>----Select Supplier----</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">
+                                                                {{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group ">
                                                 <label for="firstname" class="control-label col-lg-2">Product Serial
                                                     *</label>
@@ -78,6 +91,71 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="form-group ">
+                                                <label for="firstname" class="control-label col-lg-2">Product Grage
+                                                    *</label>
+                                                <div class="col-lg-10">
+                                                    <input class=" form-control" name="product_grage" type="text">
+                                                    @error('product_grage')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="firstname" class="control-label col-lg-2">Product Route
+                                                    *</label>
+                                                <div class="col-lg-10">
+                                                    <input class=" form-control" name="product_route" type="text">
+                                                    @error('product_route')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label for="firstname" class="control-label col-lg-2">Buy Date
+                                                    *</label>
+                                                <div class="col-lg-10">
+                                                    <input class=" form-control" name="buy_date" type="date">
+                                                    @error('buy_date')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label for="firstname" class="control-label col-lg-2">Expire Date
+                                                    *</label>
+                                                <div class="col-lg-10">
+                                                    <input class=" form-control" name="expire_date" type="date">
+                                                    @error('expire_date')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label for="firstname" class="control-label col-lg-2">Buying Price
+                                                    *</label>
+                                                <div class="col-lg-10">
+                                                    <input class=" form-control" name="buying_price" type="text">
+                                                    @error('buying_price')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label for="firstname" class="control-label col-lg-2">Selling Price
+                                                    *</label>
+                                                <div class="col-lg-10">
+                                                    <input class=" form-control" name="selling_price" type="text">
+                                                    @error('selling_price')
+                                                        <p class="text-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
                                             <div class="form-group ">
                                                 <label for="firstname" class="control-label col-lg-2">Product Image
                                                     *</label>
