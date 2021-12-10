@@ -220,6 +220,17 @@
                         </ul>
                     </li>
 
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-view-list"></i><span>Expense
+                            </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="{{ route('expense') }}">Add Expense</a></li>
+                            <li><a href="{{ route('today.expense') }}">Today Expense</a></li>
+                            <li><a href="{{ route('month.expense') }}">Monthly Expense</a></li>
+                            <li><a href="{{ route('year.expense') }}">Year Expense</a></li>
+                        </ul>
+                    </li>
+
                     {{-- <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-poll"></i><span> Charts </span><span
                                 class="pull-right"><i class="md md-add"></i></span></a>
