@@ -8,31 +8,16 @@
                     <div class="col-sm-12">
                         <ol class="breadcrumb pull-right">
                             <li><a href="#">Inventory</a></li>
-                            <li><a href="#">Customer</a></li>
-                            <li><a href="{{ route('customer') }}">Customer Details</a></li>
+                            <li><a href="#">Attendence</a></li>
+                            <li><a href="{{ route('employee') }}">Attendence Details</a></li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div>
-                                <a href="  {{ route('january.expense') }}" class="btn btn-info">January</a>
-                                <a href="  {{ route('feb.expense') }}" class="btn btn-success">February</a>
-                                <a href="  {{ route('march.expense') }}" class="btn btn-primary">March</a>
-                                <a href="  {{ route('april.expense') }}" class="btn btn-warning">April</a>
-                                <a href="  {{ route('may.expense') }}" class="btn btn-danger">May</a>
-                                <a href="  {{ route('june.expense') }}" class="btn btn-primary">June</a>
-                                <a href="  {{ route('july.expense') }}" class="btn btn-warning">July</a>
-                                <a href="  {{ route('august.expense') }}" class="btn btn-info">August</a>
-                                <a href="  {{ route('september.expense') }}" class="btn btn-success">September</a>
-                                <a href="  {{ route('october.expense') }}" class="btn btn-info">October</a>
-                                <a href="  {{ route('november.expense') }}" class="btn btn-danger">November</a>
-                                <a href="  {{ route('december.expense') }}" class="btn btn-primary">December</a>
-                            </div>
                             <div class="panel-heading">
-                                <h3 class="panel-title">Expense <a href="{{ route('expense') }}"
-                                        class="btn btn-sm btn-info pull-right">Add Expense</a></h3>
+                                <h3 class="panel-title">Employee Attendence</h3>
                                 <button type="button" id="json" class="btn btn-primary">To json</button>
                                 <button type="button" id="csv" class="btn btn-success">To CSV</button>
                                 <button type="button" id="create_pdf" class="btn btn-primary">To Pdf</button>
@@ -44,35 +29,29 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sl</th>
-                                                    <th>Expense Details</th>
-                                                    <th>Amount</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
+                                                    <th>Attendence Date</th>
+                                                    <th>Attendence Month</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($month_expense as $month_expense_info)
+                                                @foreach ($all_attendence as $all_attendence_info)
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
-                                                        <td>{{ $month_expense_info->details }}</td>
-                                                        <td>{{ $month_expense_info->amount }}</td>
-                                                        <td>{{ $month_expense_info->date }}</td>
+                                                        <td>{{ $all_attendence_info->edit_date }}</td>
+                                                        <td>{{ $all_attendence_info->month }}</td>
                                                         <td>
-                                                            @if ($month_expense_info->status == 1)
-                                                                <span class="label label-info">Active</span>
-                                                            @else
-                                                                <span class="label label-danger">Inactive</span>
-                                                            @endif
+                                                            <a href="{{ url('/attendence/edit') }}/{{ $all_attendence_info->edit_date }}"
+                                                                class="on-default edit-row"><i
+                                                                    class="fa fa-pencil"></i></a>
+                                                            <a href="{{ url('/attendence/delete') }}/{{ $all_attendence_info->id }}"
+                                                                class="on-default remove-row"><i
+                                                                    class="fa fa-trash-o"></i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
-
                                             </tbody>
                                         </table>
-                                        {{-- <h4 class="text-center text-danger">Monthly Total Purchase :
-                                            {{ $monthly_total_purchae }}৳
-                                        </h4> --}}
                                     </div>
                                 </div>
                             </div>
@@ -88,6 +67,27 @@
         $(document).ready(function() {
             $('#datatable').dataTable();
         });
+
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch(type){
+            case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break
+
+            case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break
+
+            case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break
+
+            case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break
+            }
+        @endif
 
         $('#json').on('click', function() {
             $("#datatable").tableHTMLExport({

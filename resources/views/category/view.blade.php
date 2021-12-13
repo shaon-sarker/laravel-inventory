@@ -40,7 +40,7 @@
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $category_info->category_name }}</td>
-                                                        <td><img width="25%"
+                                                        <td><img style="width:100px"
                                                                 src="{{ asset('uploads/category') }}/{{ $category_info->category_image }}"
                                                                 alt=""></td>
                                                         <td>

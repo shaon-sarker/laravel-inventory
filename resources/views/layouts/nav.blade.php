@@ -151,7 +151,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <p class="text-muted m-0">Administrator</p>
                 </div>
             </div>
@@ -161,6 +160,12 @@
                     <li>
                         <a href="{{ route('home') }}" class="waves-effect active"><i class="md md-home"></i><span>
                                 Dashboard
+                            </span></a>
+                    </li>
+
+                    <li>
+                        <a href="" class="waves-effect"><i class="md md-home"></i><span>
+                                POS
                             </span></a>
                     </li>
 
@@ -231,31 +236,26 @@
                         </ul>
                     </li>
 
-                    {{-- <li class="has_sub">
-                        <a href="#" class="waves-effect"><i class="md md-poll"></i><span> Charts </span><span
-                                class="pull-right"><i class="md md-add"></i></span></a>
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-poll"></i><span>Sales Report
+                            </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="morris-chart.html">Morris Chart</a></li>
-                            <li><a href="chartjs.html">Chartjs</a></li>
-                            <li><a href="flot-chart.html">Flot Chart</a></li>
-                            <li><a href="peity-chart.html">Peity Charts</a></li>
-                            <li><a href="charts-sparkline.html">Sparkline Charts</a></li>
-                            <li><a href="chart-radial.html">Radial charts</a></li>
-                            <li><a href="other-chart.html">Other Chart</a></li>
+                            <li><a href="morris-chart.html">Frist</a></li>
+                            <li><a href="chartjs.html">Scenond</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
 
-                    {{-- <li class="has_sub">
-                        <a href="#" class="waves-effect"><i class="md md-place"></i><span> Maps </span><span
-                                class="pull-right"><i class="md md-add"></i></span></a>
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-place"></i><span> Attendence
+                            </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="gmap.html"> Google Map</a></li>
-                            <li><a href="vector-map.html"> Vector Map</a></li>
+                            <li><a href="{{ route('attendence') }}">Take Attendence</a></li>
+                            <li><a href="{{ route('attendence.view') }}">All Attendence</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
 
-                    {{-- <li class="has_sub">
-                        <a href="#" class="waves-effect"><i class="md md-pages"></i><span> Pages </span><span
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-pages"></i><span>Settings</span><span
                                 class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
                             <li><a href="profile.html">Profile</a></li>
@@ -274,7 +274,7 @@
                             <li><a href="404_alt.html">404 alt</a></li>
                             <li><a href="500.html">500 Error</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
 
                     {{-- <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect"><i class="md md-share"></i><span>Multi

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendenceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
@@ -88,7 +89,7 @@ Route::get('/yearlyexpense', [ExpenseController::class, 'yearexpense'])->name('y
 
 //More Month Expense Route-------
 Route::get('/expense/month', [ExpenseController::class, 'januarymonth'])->name('january.expense');
-Route::get('/expense/smonth', [ExpenseController::class, 'februarymonth'])->name('february.expense');
+Route::get('/expense/scmonth', [ExpenseController::class, 'februarymonth'])->name('feb.expense');
 Route::get('/expense/tmonth', [ExpenseController::class, 'marchmonth'])->name('march.expense');
 Route::get('/expense/fmonth', [ExpenseController::class, 'aprilmonth'])->name('april.expense');
 Route::get('/expense/fimonth', [ExpenseController::class, 'maymonth'])->name('may.expense');
@@ -99,3 +100,10 @@ Route::get('/expense/nmonth', [ExpenseController::class, 'septembermonth'])->nam
 Route::get('/expense/temonth', [ExpenseController::class, 'octobermonth'])->name('october.expense');
 Route::get('/expense/elemonth', [ExpenseController::class, 'novembermonth'])->name('november.expense');
 Route::get('/expense/twemonth', [ExpenseController::class, 'decembermonth'])->name('december.expense');
+
+//Attendence Route------
+Route::get('/attendence', [AttendenceController::class, 'index'])->name('attendence');
+Route::post('/attendence/store', [AttendenceController::class, 'insert'])->name('attendence.insert');
+Route::get('/attendence/view', [AttendenceController::class, 'display'])->name('attendence.view');
+Route::get('/attendence/edit/{edit_date}', [AttendenceController::class, 'edit']);
+Route::post('/attendence/update', [AttendenceController::class, 'update']);
