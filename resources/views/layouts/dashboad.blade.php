@@ -103,8 +103,8 @@
 
     <script type="text/javascript">
         /* ==============================================
-                                                                            Counter Up
-                                                                        =============================================== */
+                                                                                Counter Up
+                                                                            =============================================== */
         jQuery(document).ready(function($) {
             $('.counter').counterUp({
                 delay: 100,

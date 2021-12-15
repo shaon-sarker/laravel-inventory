@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\AttendenceController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -107,3 +110,16 @@ Route::post('/attendence/store', [AttendenceController::class, 'insert'])->name(
 Route::get('/attendence/view', [AttendenceController::class, 'display'])->name('attendence.view');
 Route::get('/attendence/edit/{edit_date}', [AttendenceController::class, 'edit']);
 Route::post('/attendence/update', [AttendenceController::class, 'update']);
+
+//Settings Route--------
+Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+Route::post('/setting/update', [SettingController::class, 'update']);
+
+//POS Route-------
+Route::get('/pos', [PosController::class, 'index'])->name('pos');
+Route::post('/create-invoice', [PosController::class, 'invoice'])->name('invoice');
+
+//Cart Controller
+Route::post('/add-cart', [CartController::class, 'AddCart']);
+Route::post('/updatecart/{rowId}', [CartController::class, 'Cartupdate']);
+Route::get('/deletecart/{rowId}', [CartController::class, 'Cartdelete']);

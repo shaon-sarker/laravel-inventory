@@ -164,7 +164,7 @@
                     </li>
 
                     <li>
-                        <a href="" class="waves-effect"><i class="md md-home"></i><span>
+                        <a href="{{ route('pos') }}" class="waves-effect"><i class="md md-home"></i><span>
                                 POS
                             </span></a>
                     </li>
@@ -258,21 +258,7 @@
                         <a href="#" class="waves-effect"><i class="md md-pages"></i><span>Settings</span><span
                                 class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="timeline.html">Timeline</a></li>
-                            <li><a href="invoice.html">Invoice</a></li>
-                            <li><a href="email-template.html">Email template</a></li>
-                            <li><a href="contact.html">Contact-list</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="recoverpw.html">Recover Password</a></li>
-                            <li><a href="lock-screen.html">Lock Screen</a></li>
-                            <li><a href="blank.html">Blank Page</a></li>
-                            <li><a href="maintenance.html">Maintenance</a></li>
-                            <li><a href="coming-soon.html">Coming-soon</a></li>
-                            <li><a href="404.html">404 Error</a></li>
-                            <li><a href="404_alt.html">404 alt</a></li>
-                            <li><a href="500.html">500 Error</a></li>
+                            <li><a href="{{ route('setting') }}">Profile</a></li>
                         </ul>
                     </li>
 

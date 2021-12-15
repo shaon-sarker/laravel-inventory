@@ -78,4 +78,8 @@ class AttendenceController extends Controller
         );
         return back()->with($notification);
     }
+
+    // public function distroy(){
+
+    // }
 }

@@ -24,6 +24,7 @@ class CustomerPost extends FormRequest
     public function rules()
     {
         return [
+            'customer_id' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
@@ -39,6 +40,7 @@ class CustomerPost extends FormRequest
     public function messages()
     {
         return [
+            'customer_id.required' => 'customer_id field is required',
             'name.required' => 'this field is required',
             'phone.required' => 'this field is required',
             'address.required' => 'this field is required',
