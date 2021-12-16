@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalaryController;
@@ -118,8 +119,15 @@ Route::post('/setting/update', [SettingController::class, 'update']);
 //POS Route-------
 Route::get('/pos', [PosController::class, 'index'])->name('pos');
 Route::post('/create-invoice', [PosController::class, 'invoice'])->name('invoice');
+Route::post('/final-invoice/insert', [PosController::class, 'finalinvoice'])->name('invoicefinal');
 
 //Cart Controller
 Route::post('/add-cart', [CartController::class, 'AddCart']);
 Route::post('/updatecart/{rowId}', [CartController::class, 'Cartupdate']);
 Route::get('/deletecart/{rowId}', [CartController::class, 'Cartdelete']);
+
+//Order Pending-----
+Route::get('/pending', [OrderController::class, 'index'])->name('pendingorder');
+Route::get('/pending/view/{id}', [OrderController::class, 'vieworder']);
+Route::get('/pending/done/{id}', [OrderController::class, 'orderdone']);
+Route::get('/success/order', [OrderController::class, 'successorder'])->name('successorder');

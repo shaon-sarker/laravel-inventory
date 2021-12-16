@@ -237,6 +237,16 @@
                     </li>
 
                     <li class="has_sub">
+                        <a href="#" class="waves-effect"><i class="md md-poll"></i><span>Order
+                            </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="{{ route('pendingorder') }}">Pending Order</a></li>
+                            <li><a href="{{ route('successorder') }}">Success Order</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="has_sub">
                         <a href="#" class="waves-effect"><i class="md md-poll"></i><span>Sales Report
                             </span><span class="pull-right"><i class="md md-add"></i></span></a>
                         <ul class="list-unstyled">

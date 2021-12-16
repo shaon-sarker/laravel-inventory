@@ -38,17 +38,17 @@
 
                                         <div class="pull-left m-t-30">
                                             <address>
-                                                <strong>{{ $customer_name->name }}</strong><br>
-                                                <strong>{{ $customer_name->shopname }}</strong><br>
-                                                {{ $customer_name->address }}<br>
-                                                <abbr title="Phone">P:</abbr>{{ $customer_name->phone }}
+                                                <strong>{{ $orders->name }}</strong><br>
+                                                <strong>{{ $orders->shopname }}</strong><br>
+                                                {{ $orders->address }}<br>
+                                                <abbr title="Phone">P:</abbr>{{ $orders->phone }}
                                             </address>
                                         </div>
                                         <div class="pull-right m-t-30">
                                             <p><strong>Order Date: </strong>{{ date('l jS \of F Y h:i:s A') }}</p>
                                             <p class="m-t-10"><strong>Order Status: </strong> <span
-                                                    class="label label-pink">Pending</span></p>
-                                            <p class="m-t-10"><strong>Order ID: </strong> #123456</p>
+                                                    class="label label-pink">{{ $orders->order_status }}</span></p>
+                                            <p class="m-t-10"><strong>Order ID: </strong>{{ $orders->id }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -60,20 +60,23 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Item</th>
+                                                        <th>Product Name</th>
+                                                        <th>Product Code</th>
                                                         <th>Quantity</th>
-                                                        <th>Unit Cost</th>
+                                                        <th>Product Price</th>
                                                         <th>Total</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($contents as $content_info)
+                                                    @foreach ($orders_details as $orders_details_info)
                                                         <tr>
                                                             <td>{{ $loop->index + 1 }}</td>
-                                                            <td>{{ $content_info->name }}</td>
-                                                            <td>{{ $content_info->qty }}</td>
-                                                            <td>{{ $content_info->price }}</td>
-                                                            <td>{{ $content_info->price * $content_info->qty }}</td>
+                                                            <td>{{ $orders_details_info->prodruct_name }}</td>
+                                                            <td>{{ $orders_details_info->product_serialno }}</td>
+                                                            <td>{{ $orders_details_info->product_quantity }}</td>
+                                                            <td>{{ $orders_details_info->total }}</td>
+                                                            <td>{{ $orders_details_info->total * $orders_details_info->product_quantity }}
+                                                            </td>
                                                         </tr>
                                                     @endforeach
 
@@ -82,24 +85,40 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="border-radius: 0px;">
-                                    <div class="col-md-3 col-md-offset-9">
-                                        <p class="text-right"><b>Sub-total:</b>{{ Cart::subtotal() }}</p>
-                                        {{-- <p class="text-right">Discout: 12.9%</p> --}}
-                                        <p class="text-right">VAT: {{ Cart::tax() }}</p>
-                                        <hr>
-                                        <h3 class="text-right">TOTAL {{ Cart::total() }}</h3>
+
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h4>
+                                            <b>Payment By:</b> <span
+                                                class="badge badge-info">{{ $orders->payment_status }}</span>
+                                        </h4>
+                                        <h5><b>Pay:</b>{{ $orders->pay }}</h5>
+                                        <h5><b>Due:</b>{{ $orders->due }}</h5>
                                     </div>
+                                    <div class="col-md-3">
+                                        <p class=" text-right">
+                                            <b>Sub-total:</b>{{ $orders->sub_total }}
+                                        </p>
+                                        {{-- <p class="text-right">Discout: 12.9%</p> --}}
+                                        <p class="text-right">VAT: {{ $orders->vat }}</p>
+                                        <hr>
+                                        <h3 class="text-right">TOTAL {{ $orders->total }}</h3>
+                                    </div>
+
                                 </div>
                                 <hr>
-                                <div class="hidden-print">
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-inverse waves-effect waves-light"
-                                            onclick="window.print()"><i class="fa fa-print"></i></a>
-                                        <a href="#" class="btn btn-success waves-effect waves-light" data-toggle="modal"
-                                            data-target="#con-close-modal">Submit</a>
+                                @if ($orders->order_status == 'success')
+                                @else
+                                    <div class="hidden-print">
+                                        <div class="pull-right">
+                                            <a href="#" class="btn btn-inverse waves-effect waves-light"
+                                                onclick="window.print()"><i class="fa fa-print"></i></a>
+                                            <a href="{{ url('/pending/done') }}/{{ $orders->id }}"
+                                                class="btn btn-success btn-sm"><i class="fa fa-plus-square">Done</i></a>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
+
                             </div>
                         </div>
 
@@ -113,7 +132,7 @@
 
 
     <!-----Modal Start----->
-    <form action="{{ url('/final-invoice/insert') }}" method="POST">
+    {{-- <form action="{{ url('/final-invoice/insert') }}" method="POST">
         @csrf
         <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true" style="display: none;">
@@ -204,7 +223,8 @@
             </div>
         </div>
         </div>
-    </form><!-- /.modal -->
+    </form> --}}
+    <!-- /.modal -->
 @endsection
 @section('footer_script')
     <script>

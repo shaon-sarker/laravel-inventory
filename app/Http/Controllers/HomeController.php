@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $today_date = date('d/m/y');
+        // $today_sales = Order::total();
+        // $today_sales = Order::orderBy('id', 'desc')->sum('total');
+        // echo $today_sales;
+        // die();
         return view('home');
     }
 }
