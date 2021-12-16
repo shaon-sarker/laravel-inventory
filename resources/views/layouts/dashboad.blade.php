@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="{{ asset('admin_dashboad/images/favicon_1.ico') }}">
 
-    <title>Moltran - Responsive Admin Dashboard Template</title>
+    <title>{{ env('APP_NAME') }}</title>
 
     <!-- Base Css Files -->
     <link href="{{ asset('admin_dashboad/css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -103,8 +103,8 @@
 
     <script type="text/javascript">
         /* ==============================================
-                                                                                Counter Up
-                                                                            =============================================== */
+                                                                                    Counter Up
+                                                                                =============================================== */
         jQuery(document).ready(function($) {
             $('.counter').counterUp({
                 delay: 100,
