@@ -10,6 +10,11 @@ use Image;
 
 class CustomerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('customer.index');
@@ -37,7 +42,7 @@ class CustomerController extends Controller
         ]);
         $notification = array(
             'message' => 'Customer Added Succesfully',
-            'alert-type' => 'info'
+            'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }
@@ -71,10 +76,10 @@ class CustomerController extends Controller
         // ]);
         $new_customer_photo = $request->photo;
         $extension = $new_customer_photo->getClientOriginalExtension();
-        $new_customer_name = $customer_id . '.' . $extension;
+        $new_customer_name = $request->customer_id . '.' . $extension;
 
         Image::make($new_customer_photo)->save(base_path('public/uploads/customers/' . $new_customer_name));
-        Customer::find($customer_id)->update([
+        Customer::find($request->customer_id)->update([
             'photo' => $new_customer_name,
         ]);
         $notification = array(

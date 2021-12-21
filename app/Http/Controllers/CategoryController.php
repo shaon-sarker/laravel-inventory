@@ -11,6 +11,11 @@ use Image;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('category.index');
@@ -48,7 +53,6 @@ class CategoryController extends Controller
             'alert-type' => 'warning'
         );
         return redirect()->back()->with($notification);
-        // return back()->with('status', 'Category Status Inactive');
     }
     public function Inactivecategory($category_id)
     {
@@ -58,7 +62,6 @@ class CategoryController extends Controller
             'alert-type' => 'warning'
         );
         return redirect()->back()->with($notification);
-        // return back()->with('status', 'Category Status Inactive');
     }
 
     public function distroy($category_id)

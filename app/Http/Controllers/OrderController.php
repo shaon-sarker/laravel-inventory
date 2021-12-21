@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pending_order = Order::select('customers.name', 'orders.*')->join('customers', 'customers.id', '=', 'orders.customer_id')->where('order_status', 'pending')->get();

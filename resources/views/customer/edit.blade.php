@@ -13,125 +13,91 @@
                         </ol>
                     </div>
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="panel panel-default m-auto">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Customer</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="form">
-                                        <form method="POST" action="{{ url('/customer/update') }}"
-                                            class="cmxform form-horizontal tasi-form" id="signupForm"
-                                            novalidate="novalidate" enctype="multipart/form-data">
-                                            @csrf
-                                            <input type="hidden" name="customer_id" value="{{ $customer_edit->id }}">
-                                            <div class="form-group ">
-                                                <label for="firstname" class="control-label col-lg-2">Name *</label>
-                                                <div class="col-lg-10">
-                                                    <input class=" form-control" id="firstname" name="name" type="text"
+                                    <form method="POST" action="{{ url('/customer/update') }}"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="customer_id" value="{{ $customer_edit->id }}">
+                                        <div class="form">
+                                            <div class=" col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-4" class="control-label">Customer Name</label>
+                                                    <input type="text" name="name" class="form-control"
                                                         value={{ $customer_edit->name }}>
-                                                    @error('name')
-                                                        {{ $message }}
-                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="username" class="control-label col-lg-2">Phone *</label>
-                                                <div class="col-lg-10">
-                                                    <input class="form-control " id="username" name="phone" type="number"
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-5" class="control-label">Customer Phone</label>
+                                                    <input type="number" name="phone" class="form-control"
                                                         value={{ $customer_edit->phone }}>
-                                                    @error('phone')
-                                                        {{ $message }}
-                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="password" class="control-label col-lg-2">Address *</label>
-                                                <div class="col-lg-10">
-                                                    <textarea name="address" class="form-control " id="" cols="30"
-                                                        rows="10">{{ $customer_edit->address }}</textarea>
-                                                    @error('address')
-                                                        {{ $message }}
-                                                    @enderror
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-4" class="control-label">Customer Address</label>
+                                                    <input type="text" name="address" class="form-control"
+                                                        value={{ $customer_edit->address }}></input>
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="confirm_password" class="control-label col-lg-2">ShopName
-                                                    *</label>
-                                                <div class="col-lg-10">
-                                                    <input class="form-control " name="shopname" type="text"
+                                        </div>
+                                        <div class="form">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-6" class="control-label">Customer Shopname</label>
+                                                    <input type="text" name="shopname" class="form-control"
                                                         value={{ $customer_edit->shopname }}>
-                                                    @error('shopname')
-                                                        {{ $message }}
-                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="email" class="control-label col-lg-2">Photo *</label>
-                                                <div class="col-lg-10">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-5" class="control-label">Customer Picture</label>
                                                     <input class="form-control" name="photo" type="file">
-                                                    <img class="w-25"
+                                                    <img style="width: 50px"
                                                         src="{{ asset('uploads/customers') }}/{{ $customer_edit->photo }}"
-                                                        alt="">
+                                                        alt="customer_picture">
                                                 </div>
-
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="confirm_password" class="control-label col-lg-2">Account Holder
-                                                    *</label>
-                                                <div class="col-lg-10">
-                                                    <input class="form-control " id="confirm_password"
-                                                        name="account_holder" type="text"
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-6" class="control-label">Account Holder</label>
+                                                    <input class="form-control" name="account_holder" type="text"
                                                         value={{ $customer_edit->account_holder }}>
-                                                    @error('account_holder')
-                                                        {{ $message }}
-                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="confirm_password" class="control-label col-lg-2">Account Number
-                                                    *</label>
-                                                <div class="col-lg-10">
-                                                    <input class="form-control " id="confirm_password"
-                                                        name="account_number" type="number"
+                                        </div>
+                                        <div class="form">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-4" class="control-label">Account Number</label>
+                                                    <input type="number" name="account_number" class="form-control"
                                                         value={{ $customer_edit->account_number }}>
-                                                    @error('account_number')
-                                                        {{ $message }}
-                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="confirm_password" class="control-label col-lg-2">Branch Name
-                                                    *</label>
-                                                <div class="col-lg-10">
-                                                    <input class="form-control " id="confirm_password" name="branch_name"
-                                                        type="text" value={{ $customer_edit->branch_name }}>
-                                                    @error('branch_name')
-                                                        {{ $message }}
-                                                    @enderror
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Branch Name</label>
+                                                    <input type="text" name="branch_name" class="form-control"
+                                                        value={{ $customer_edit->branch_name }}>
                                                 </div>
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="confirm_password" class="control-label col-lg-2">Bank Name
-                                                    *</label>
-                                                <div class="col-lg-10">
-                                                    <input class="form-control " id="confirm_password" name="bank_name"
-                                                        type="text" value={{ $customer_edit->bank_name }}>
-                                                    @error('bank_name')
-                                                        {{ $message }}
-                                                    @enderror
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Bank Name</label>
+                                                    <input type="text" name="bank_name" class="form-control"
+                                                        value={{ $customer_edit->bank_name }}>
                                                 </div>
+                                                <button class="btn btn-success waves-effect waves-light"
+                                                    type="submit">Update</button>
+                                                <button class="btn btn-default waves-effect" type="button">Cancel</button>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="col-lg-offset-2 col-lg-10">
-                                                    <button class="btn btn-success waves-effect waves-light"
-                                                        type="submit">Save</button>
-                                                    <a href="{{ route('customer.view') }}"
-                                                        class="btn btn-default waves-effect">Back</a>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

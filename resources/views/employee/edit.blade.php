@@ -13,14 +13,87 @@
                         </ol>
                     </div>
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="panel panel-default m-auto">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Employee</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="form">
-                                        <form method="POST" action="{{ url('/employee/update') }}"
+                                    <form method="POST" action="{{ url('/employee/update') }}"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form">
+                                            <input type="hidden" name="employee_id" value="{{ $employee_edit->id }}">
+                                            <div class=" col-md-4">
+                                                <div class="form-group">
+                                                    <label>Employee Name</label>
+                                                    <input class="form-control" name="name" type="text"
+                                                        value={{ $employee_edit->name }}>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Employee Email</label>
+                                                    <input class="form-control" name="email" type="email"
+                                                        value={{ $employee_edit->email }}>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-6" class="control-label">Employee Phone</label>
+                                                    <input class="form-control" name="phone" type="number"
+                                                        value={{ $employee_edit->phone }}>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-4" class="control-label">Employee Address</label>
+                                                    <textarea name="address" class="form-control " id="" cols="30"
+                                                        rows="10">{{ $employee_edit->address }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-5" class="control-label">Employee Experience</label>
+                                                    <input class="form-control " name="experience" type="number"
+                                                        value={{ $employee_edit->experience }}>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-6" class="control-label">Employee Picture</label>
+                                                    <input class="form-control" name="photo" type="file">
+                                                </div>
+                                                <img style="width: 50px"
+                                                    src="{{ asset('uploads/employess') }}/{{ $employee_edit->photo }}"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div class="form">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="field-4" class="control-label">Employee Salary</label>
+                                                    <input class="form-control" name="slaray" type="number"
+                                                        value={{ $employee_edit->slaray }}>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Empoyee City</label>
+                                                    <input class="form-control" name="city" type="text"
+                                                        value={{ $employee_edit->city }}>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="btn btn-success waves-effect waves-light"
+                                                    type="submit">Update</button>
+                                                <button class="btn btn-default waves-effect" type="button">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    {{-- <form method="POST" action="{{ url('/employee/update') }}"
                                             class="cmxform form-horizontal tasi-form" id="signupForm"
                                             novalidate="novalidate" enctype="multipart/form-data">
                                             @csrf
@@ -97,8 +170,8 @@
                                                         class="btn btn-default waves-effect">Back</a>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </form> --}}
+
                                 </div>
                             </div>
                         </div>

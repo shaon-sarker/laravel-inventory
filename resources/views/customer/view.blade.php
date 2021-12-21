@@ -21,6 +21,7 @@
                                 <button type="button" id="json" class="btn btn-primary">To json</button>
                                 <button type="button" id="csv" class="btn btn-success">To CSV</button>
                                 <button type="button" id="create_pdf" class="btn btn-primary">To Pdf</button>
+                                <a href="{{ route('customer') }}" class="pull-right btn btn-info btn-sm">Add Customer</a>
                             </div>
                             <div class="panel-body">
                                 <div class="row">

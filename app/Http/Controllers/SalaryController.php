@@ -9,6 +9,11 @@ use Carbon\Carbon;
 
 class SalaryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $employees = Employee::all();

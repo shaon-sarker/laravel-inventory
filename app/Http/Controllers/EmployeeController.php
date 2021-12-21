@@ -10,6 +10,11 @@ use Image;
 
 class EmployeeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('employee.index');
@@ -36,7 +41,7 @@ class EmployeeController extends Controller
         ]);
         $notification = array(
             'message' => 'Employee Added Succesfully',
-            'alert-type' => 'primary'
+            'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }
@@ -69,10 +74,10 @@ class EmployeeController extends Controller
         // ]);
         $new_employee_photo = $request->photo;
         $extension = $new_employee_photo->getClientOriginalExtension();
-        $new_employee_name = $employee_id . '.' . $extension;
+        $new_employee_name = $request->employee_id . '.' . $extension;
 
         Image::make($new_employee_photo)->save(base_path('public/uploads/employess/' . $new_employee_name));
-        Employee::find($employee_id)->update([
+        Employee::find($request->employee_id)->update([
             'photo' => $new_employee_name,
         ]);
         $notification = array(

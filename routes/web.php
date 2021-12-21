@@ -56,7 +56,7 @@ Route::post('/supplier/store', [SupplierController::class, 'insert'])->name('sup
 Route::get('/supplier/view', [SupplierController::class, 'display'])->name('supplier.view');
 Route::get('/supplier/edit/{supplier_id}', [SupplierController::class, 'edit']);
 Route::post('/supplier/update', [SupplierController::class, 'update']);
-Route::get('/customer/delete/{customer_id}', [CustomerController::class, 'distroy']);
+Route::get('/supplier/delete/{supplier_id}', [SupplierController::class, 'distroy']);
 
 //Salary Route
 Route::get('/salary', [SalaryController::class, 'index'])->name('salary');
